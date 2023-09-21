@@ -11,7 +11,7 @@ const pool = new Pool({
 });
 const app = express();
 
-app.get("/search", (req, res) => {
+app.get("/api/search", (req, res) => {
 	const { query } = req.query;
 	pool
 		.query(
@@ -26,7 +26,7 @@ app.get("/search", (req, res) => {
 		});
 });
 
-app.get("/post/:id", (req, res) => {
+app.get("/api/post/:id", (req, res) => {
 	const { id } = req.params;
 	pool
 		.query(`SELECT * FROM posts WHERE "postID"=$1`, [id])
@@ -36,7 +36,7 @@ app.get("/post/:id", (req, res) => {
 
 
 
-app.get("/", (req, res) =>
+app.get("/api", (req, res) =>
 	pool
 		.query("SELECT * FROM posts")
 		.then((data) => res.json(data.rows))
