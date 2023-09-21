@@ -7,7 +7,8 @@ dotenv.config();
 const { Pool } = pg;
 
 const pool = new Pool({
-	connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+	connectionString:
+		"postgres://default:YLKk26jWtumA@ep-dry-hall-77963246-pooler.eu-central-1.postgres.vercel-storage.com:5432/verceldb?sslmode=require",
 });
 const app = express();
 
