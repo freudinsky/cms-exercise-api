@@ -11,4 +11,4 @@ const server = app.listen(8585, () => {
     console.log("Server running on Port 8585.")
 })
 
-app.get("/", (req,res))
+app.get("/api", (req,res))
