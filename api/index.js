@@ -46,3 +46,5 @@ app.get("/api", (req, res) =>
 const server = app.listen(8585, () => {
 	console.log("Server running on Port 8585.");
 });
+
+module.exports = app
