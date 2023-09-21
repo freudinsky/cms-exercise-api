@@ -1,6 +1,6 @@
-import express from "express";
-import dotenv from "dotenv";
-import pg from "pg";
+const express = require('express')
+const dotenv = require("dotenv");
+const pg = require("pg");
 
 dotenv.config();
 
