@@ -2,6 +2,17 @@ const express = require('express')
 const dotenv = require("dotenv");
 const pg = require("pg");
 
+
+
+dotenv.config();
+
+const { Pool } = pg;
+
+const pool = new Pool({
+	connectionString: process.env.POSTGRES_URL,
+});
+const app = express();
+
 app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Origin", "*");
 	res.setHeader(
@@ -18,15 +29,6 @@ app.use((req, res, next) => {
 
 	next();
 });
-
-dotenv.config();
-
-const { Pool } = pg;
-
-const pool = new Pool({
-	connectionString: process.env.POSTGRES_URL,
-});
-const app = express();
 
 app.get("/api/search", (req, res) => {
 	const { query } = req.query;
