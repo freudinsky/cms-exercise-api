@@ -3,4 +3,4 @@ node_modules
 .flaskenv*
 !.env.project
 !.env.vault
-./services
+cf_to_pg_migration.js
