@@ -11,10 +11,6 @@ const pool = new Pool({
 });
 const app = express();
 
-app.use((req,res,next) =>{
-	res.header("Access-Control-Allow-Origin", "*");
-})
-
 app.get("/api/search", (req, res) => {
 	const { query } = req.query;
 	pool
@@ -46,6 +42,10 @@ app.get("/api", (req, res) =>
 		.then((data) => res.json(data.rows))
 		.catch((e) => res.sendStatus(500))
 );
+
+app.use((req, res, next) => {
+	res.header("Access-Control-Allow-Origin", "*");
+});
 
 const server = app.listen(8585, () => {
 	console.log("Server running on Port 8585.");
