@@ -1,13 +1,15 @@
 import axios from "axios";
-import pkg from "pg";
-const { Client } = pkg;
+const dotenv = require("dotenv");
+const pg = require("pg");
+dotenv.config()
+const { Client } = pg;
+
 
 const contentfulAPIUrl =
 	"https://cdn.contentful.com/spaces/bicmbwrww2bh/entries";
 const accessToken = "tNiGC3b1I64hpUi6pqo6CLuLcn-kJGF_l2RFE3NYDqk";
 const postgresConfig = {
-	connectionString:
-		"postgres://default:YLKk26jWtumA@ep-dry-hall-77963246.eu-central-1.postgres.vercel-storage.com:5432/verceldb?sslmode=require",
+		connectionString: process.env.POSTGRES_URL,
 };
 
 const client = new Client(postgresConfig);
