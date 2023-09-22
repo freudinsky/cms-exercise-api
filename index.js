@@ -11,6 +11,10 @@ const pool = new Pool({
 });
 const app = express();
 
+app.use((req,res,next) =>{
+	res.header("Access-Control-Allow-Origin", "*");
+})
+
 app.get("/api/search", (req, res) => {
 	const { query } = req.query;
 	pool
